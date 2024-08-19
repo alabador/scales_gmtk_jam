@@ -13,6 +13,9 @@ public class MovementController : MonoBehaviour
     // _current direction can be -1 or 1, indicates sprite x-axis direction
     private int _currentDirection = 1;
 
+    // Jump
+    [SerializeField] float _jumpStrength = 1f;
+
     // Dashing
     private bool _canDash = true;
     private bool _isDashing;
@@ -39,6 +42,12 @@ public class MovementController : MonoBehaviour
         if (Input.anyKey == false)
         {
             anim.Play("strawberry_idle");
+        }
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            myRigidbody.position += Vector2.up * _jumpStrength * Time.deltaTime;
+
         }
 
         if (Input.GetKey(KeyCode.A))
