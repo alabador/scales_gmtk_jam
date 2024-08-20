@@ -7,6 +7,12 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] public float remainingTime;
+    public QuestGenerator QuestGenerator;
+
+    private void Start()
+    {
+        remainingTime = QuestGenerator.timeAllowed;
+    }
 
     void Update()
     {

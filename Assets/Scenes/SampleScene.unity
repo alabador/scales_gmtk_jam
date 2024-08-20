@@ -989,7 +989,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   currentFruits: []
+  timeAllowed: 0
   totalFruits: 0
+  wantedStrawberries: 0
+  wantedLemons: 0
+  wantedPears: 0
+  wantedOranges: 0
 --- !u!1 &1153627859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,6 +1360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1271205526}
   remainingTime: 10
+  QuestGenerator: {fileID: 1121976301}
 --- !u!1 &1710626745
 GameObject:
   m_ObjectHideFlags: 0
