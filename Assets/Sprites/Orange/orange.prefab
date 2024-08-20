@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitType: Orange
+  platformController: {fileID: 0}
 --- !u!95 &8763577169127569922
 Animator:
   serializedVersion: 5
