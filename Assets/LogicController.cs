@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LogicController : MonoBehaviour
 {
     [SerializeField] public PlatformController platformController;
+    [SerializeField] public TextMeshProUGUI countTextElement;
     private List<GameObject> fruitsOnScale;
     private int totalFruits; 
+    
 
     void Start()
     {
@@ -16,6 +19,6 @@ public class LogicController : MonoBehaviour
     void Update()
     {
         totalFruits = fruitsOnScale.Count;
-        Debug.Log($"{totalFruits}");
+        countTextElement.text = totalFruits.ToString();
     }
 }

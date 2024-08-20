@@ -12,6 +12,8 @@ public class ObjectProperties : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        platformController = GameObject.Find("Scale Platform").GetComponent<PlatformController>();
+        
         fruitsOnScale = platformController.fruitsOnScale;
 
     }
