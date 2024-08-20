@@ -7,6 +7,7 @@ public class Patrol : MonoBehaviour
     [SerializeField] private Rigidbody2D myRigidbody;
     [SerializeField] private SpriteRenderer myRenderer;
     public Animator anim;
+    [SerializeField] private string movementAnim;
 
     public float speed;
     public float rayDistance;
@@ -18,7 +19,7 @@ public class Patrol : MonoBehaviour
     {
         // Starts moving right
         transform.Translate(Vector2.right * speed * Time.deltaTime);
-        anim.Play("orange_walk");
+        anim.Play(movementAnim);
 
         // Creates a raycast to detect for collisions in direction
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, rayDistance);

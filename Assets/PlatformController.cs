@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlatformController : MonoBehaviour
 {
     private Vector2 originalPos;
-    bool isColliding = false;
+    public List<GameObject> fruitsOnScale = new List<GameObject>();
 
     private void Start()
     {
@@ -17,12 +17,10 @@ public class PlatformController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "NPC")
         {
-                isColliding = true;
-
-        }
-        else
-        {
-            isColliding = false;
+            if (!fruitsOnScale.Contains(collision.gameObject))
+            {
+                fruitsOnScale.Add(collision.gameObject);
+            }
         }
     }
 
@@ -32,13 +30,9 @@ public class PlatformController : MonoBehaviour
         {
             if (transform.localPosition.y > -0.7f)
             {
-                transform.Translate(0, -0.1f * Time.deltaTime, 0);
-                isColliding = true;
+                transform.Translate(0, -0.3f * Time.deltaTime, 0);
             }
-            else
-            {
-                isColliding = false;
-            }
+
         }
     }
 
@@ -46,24 +40,13 @@ public class PlatformController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "NPC")
         {
-            //if (transform.localPosition.y < originalPos.y)
-            //{
-            //    transform.Translate(0, 0.01f, 0);
-            //    isColliding = true;
-            //}
+            
         }
 
     }
 
-    private void Update()
-    {
-        if (!isColliding)
-        {
-            if (transform.localPosition.y < originalPos.y)
-            {
-                transform.Translate(0, 0.1f * Time.deltaTime, 0);
-            }
-
-        }
-    }
+    //private void Update()
+    //{
+        
+    //}
 }
