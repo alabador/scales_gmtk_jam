@@ -1,0 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using System;
+
+
+public class PearCount : MonoBehaviour
+{
+    [SerializeField] TextMeshProUGUI countText;
+    public QuestGenerator QuestGenerator;
+
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        countText.text = Convert.ToString(QuestGenerator.wantedPears);
+
+    }
+}

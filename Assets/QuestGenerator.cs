@@ -57,13 +57,15 @@ public class QuestGenerator : MonoBehaviour
             }
         }
 
-        timeAllowed = Random.Range(10, 40);
+        timeAllowed = Random.Range(20, 50);
 
         // Now currentFruits should have items.
-        wantedStrawberries = Random.Range(1, totalStrawberries);
-        wantedOranges = Random.Range(1, totalOranges);
-        wantedPears = Random.Range(1, totalPears);
-        wantedLemons = Random.Range(1, totalLemons);
+        wantedStrawberries = Random.Range(0, totalStrawberries);
+        wantedOranges = Random.Range(0, totalOranges);
+        wantedPears = Random.Range(0, totalPears);
+        wantedLemons = Random.Range(0, totalLemons);
+
+        InvokeRepeating("Spawn", 3, 5);
     }
 
     // Update is called once per frame
@@ -71,4 +73,13 @@ public class QuestGenerator : MonoBehaviour
     {
         
     }
+
+    private void Spawn()
+    {
+        
+        Vector3 randomPos = new Vector3(Random.Range(-6, 4), 3.5f, 0);
+
+        Instantiate(fruits[Random.Range(0,4)], randomPos, Quaternion.identity);
+    }
+
 }
