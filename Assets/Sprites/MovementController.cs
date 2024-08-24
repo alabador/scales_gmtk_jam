@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovementController : MonoBehaviour
 {
@@ -38,6 +40,11 @@ public class MovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameObject.transform.position.y < -1)
+        {
+            // Ends game when falling off scale
+            SceneManager.LoadScene("GameEnd");
+        }
         // Idle Animation on release key
         if (Input.anyKey == false)
         {
@@ -98,19 +105,15 @@ public class MovementController : MonoBehaviour
         myRigidbody.velocity = new Vector2(transform.localScale.x * _dashingPower, 0f) * direction;
         myRigidbody.drag = _dragPower;
 
-        //anim.Play("witch_run");
-        //tr.emitting = true;
 
         yield return new WaitForSeconds(_dashingTime);
 
-        //tr.emitting = false;
         // myRigidbody.gravityScale = originalGravity;
         myRigidbody.velocity = Vector2.zero;
         myRigidbody.drag = 0f;
 
 
         _isDashing = false;
-        //anim.Play("witch_idle");
 
 
         yield return new WaitForSeconds(_dashingCooldown);
